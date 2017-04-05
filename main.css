@@ -19,3 +19,7 @@ body {
   border-bottom: 3px solid #666;
   padding: 3px;
 }
+
+#score {
+  padding: 5px 0
+}

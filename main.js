@@ -66,6 +66,11 @@ class Game {
     this.addSpriteToGrid(player)
   }
 
+  addScore(amount) {
+    this.score += amount
+    this.drawScore()
+  }
+
   shootLaser(x, y) {
     let laser = new Laser(x, y)
     this.lasers.push(laser)
@@ -138,6 +143,9 @@ class Game {
     }
   }
 
+  drawScore() {
+    document.getElementById('score').innerHTML = this.score
+  }
 }
 
 
@@ -217,7 +225,7 @@ function moveLasers() {
         game.removeSpriteFromGrid(spriteInNextSpace)
         game.removeSpriteFromGrid(laser)
         game.removeSpriteFromArray(spriteInNextSpace, game.enemies)
-        game.score++
+        game.addScore(1)
       }
       else {
         game.moveSprite(laser, laser.x-1, laser.y)
